@@ -16,8 +16,10 @@ public:
 	void insert(int val);
 	// Remove a node of 'val' from the tree
 	void remove(int val);
-	// Search for node of 'val', with optional out pointer for the node and its parent
-	bool search(int val, TreeNode** outNodePtr = nullptr, TreeNode** outParentPtr = nullptr);
+	// Search for node of 'val', with out pointer for the node
+	bool search(int val, TreeNode** outNodePtr);
+	// Search for node of 'val', with out pointer for the node and its parent
+	bool search(int val, TreeNode** outNodePtr, TreeNode** outParentPtr);
 
 private:
 	// Get the minimum node from 'root', with out pointers for the node and its parent

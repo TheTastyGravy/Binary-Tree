@@ -18,9 +18,16 @@ BinaryTree::~BinaryTree()
 
 void BinaryTree::insert(int val)
 {
+	// Edge case for empty tree
+	if (root == nullptr)
+	{
+		root = new TreeNode(val);
+		return;
+	}
+
 	TreeNode* parent = nullptr;
 
-	// Get the node
+	// Get the node closest to val
 	if (search(val, &parent))
 	{
 		// Create new node
@@ -83,8 +90,68 @@ void BinaryTree::remove(int val)
 }
 
 
+bool BinaryTree::search(int val, TreeNode** outNodePtr)
+{
+	// Edge case for empty tree
+	if (root == nullptr)
+		return false;
+
+	TreeNode* current = root;
+
+	// Loop ends when node is found or determined not to exist
+	while (true)
+	{
+		// Use left
+		if (current->getVal() < val)
+		{
+			// Get the next node and repeat
+			if (current->getLeft() != nullptr)
+			{
+				// Update current
+				current = current->getLeft();
+				continue;
+			}
+			// Node of val doesnt exist
+			else
+			{
+				// Update out to the nearest node
+				*outNodePtr = current;
+				return false;
+			}
+		}
+		// Use right
+		else if (current->getVal() > val)
+		{
+			// Get the next node and repeat
+			if (current->getRight() != nullptr)
+			{
+				// Update current
+				current = current->getRight();
+				continue;
+			}
+			// Node of val doesnt exist
+			else
+			{
+				// Update out to the nearest node
+				*outNodePtr = current;
+				return false;
+			}
+		}
+		// Current == val
+		else
+		{
+			*outNodePtr = current;
+			return true;
+		}
+	}
+}
+
 bool BinaryTree::search(int val, TreeNode** outNodePtr, TreeNode** outParentPtr)
 {
+	// Edge case for empty tree
+	if (root == nullptr)
+		return false;
+
 	TreeNode* current = root;
 	TreeNode* parent = nullptr;
 
@@ -140,6 +207,7 @@ bool BinaryTree::search(int val, TreeNode** outNodePtr, TreeNode** outParentPtr)
 		}
 	}
 }
+
 
 void BinaryTree::getMin(TreeNode* root, TreeNode** outNodePtr, TreeNode** outParentPtr)
 {
