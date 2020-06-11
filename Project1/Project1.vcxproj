@@ -124,12 +124,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="TreeNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\raylib\raylib.vcxproj">
       <Project>{e89d61ac-55de-4482-afd4-df7242ebc859}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
