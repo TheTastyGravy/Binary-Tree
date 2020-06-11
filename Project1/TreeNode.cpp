@@ -17,26 +17,3 @@ TreeNode::TreeNode(int val, TreeNode* left, TreeNode* right) :
 TreeNode::~TreeNode()
 {
 }
-
-
-/*
-
-bool TreeNode::getLeft(TreeNode** outPtr)
-{
-	// Set out pointer and return if it exists
-	if (left != nullptr)
-		*outPtr = left;
-
-	return (left != nullptr);
-}
-
-bool TreeNode::getRight(TreeNode** outPtr)
-{
-	// Set out pointer and return if it exists
-	if (right != nullptr)
-		*outPtr = right;
-
-	return (right != nullptr);
-}
-
-*/

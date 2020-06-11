@@ -35,11 +35,11 @@ void BinaryTree::insert(int val)
 
 		// Set parent's correct pointer to the new node
 		// Use left
-		if (parent->getVal() < val)
-			parent->setLeft(newNode);
+		if (parent->val < val)
+			parent->left = newNode;
 		// Use right
 		else
-			parent->setRight(newNode);
+			parent->right = newNode;
 	}
 }
 
@@ -53,22 +53,22 @@ void BinaryTree::remove(int val)
 	if (search(val, &current, &parent))
 	{
 		// If right exists
-		if (current->getRight() != nullptr)
+		if (current->right != nullptr)
 		{
 			TreeNode* min = nullptr;
 			TreeNode* minParent = nullptr;
 			// Get min node thats larger than current
-			getMin(current->getRight(), &min, &minParent);
+			getMin(current->right, &min, &minParent);
 
 			// Update current val
-			current->setVal(min->getVal());
+			current->val = min->val;
 
 			// If min is dirrectly off of current
-			if (min == current->getRight())
-				current->setRight(min->getRight());
+			if (min == current->right)
+				current->right = min->right;
 			// If min is somewhere left
 			else
-				minParent->setLeft(min->getRight());
+				minParent->left = min->right;
 			// Min is 'moved' to current; delete it
 			delete min;
 		}
@@ -77,12 +77,12 @@ void BinaryTree::remove(int val)
 		{
 			// If current is the root, change it
 			if (current == root)
-				root = current->getLeft();
+				root = current->left;
 			// Update the parent's pointer
-			else if (current == parent->getLeft())
-				parent->setLeft(current->getLeft());
+			else if (current == parent->left)
+				parent->left = current->left;
 			else
-				parent->setRight(current->getLeft());
+				parent->right = current->left;
 			// Current is now unused; delete it
 			delete current;
 		}
@@ -102,13 +102,13 @@ bool BinaryTree::search(int val, TreeNode** outNodePtr)
 	while (true)
 	{
 		// Use left
-		if (current->getVal() < val)
+		if (current->val < val)
 		{
 			// Get the next node and repeat
-			if (current->getLeft() != nullptr)
+			if (current->left != nullptr)
 			{
 				// Update current
-				current = current->getLeft();
+				current = current->left;
 				continue;
 			}
 			// Node of val doesnt exist
@@ -120,13 +120,13 @@ bool BinaryTree::search(int val, TreeNode** outNodePtr)
 			}
 		}
 		// Use right
-		else if (current->getVal() > val)
+		else if (current->val > val)
 		{
 			// Get the next node and repeat
-			if (current->getRight() != nullptr)
+			if (current->right != nullptr)
 			{
 				// Update current
-				current = current->getRight();
+				current = current->right;
 				continue;
 			}
 			// Node of val doesnt exist
@@ -159,14 +159,14 @@ bool BinaryTree::search(int val, TreeNode** outNodePtr, TreeNode** outParentPtr)
 	while (true)
 	{
 		// Use left
-		if (current->getVal() < val)
+		if (current->val < val)
 		{
 			// Get the next node and repeat
-			if (current->getLeft() != nullptr)
+			if (current->left != nullptr)
 			{
 				// Update current and parent
 				parent = current;
-				current = current->getLeft();
+				current = current->left;
 				continue;
 			}
 			// Node of val doesnt exist
@@ -179,14 +179,14 @@ bool BinaryTree::search(int val, TreeNode** outNodePtr, TreeNode** outParentPtr)
 			}
 		}
 		// Use right
-		else if (current->getVal() > val)
+		else if (current->val > val)
 		{
 			// Get the next node and repeat
-			if (current->getRight() != nullptr)
+			if (current->right != nullptr)
 			{
 				// Update current and parent
 				parent = current;
-				current = current->getRight();
+				current = current->right;
 				continue;
 			}
 			// Node of val doesnt exist
@@ -218,11 +218,11 @@ void BinaryTree::getMin(TreeNode* root, TreeNode** outNodePtr, TreeNode** outPar
 	while (true)
 	{
 		// If left exists
-		if (current->getLeft() != nullptr)
+		if (current->left != nullptr)
 		{
 			// Update parent, then current
 			parent = current;
-			current = current->getLeft();
+			current = current->left;
 			continue;
 		}
 		// This is furthest left node, therefore min
