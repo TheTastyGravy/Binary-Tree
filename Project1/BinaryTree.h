@@ -6,8 +6,13 @@ class BinaryTree
 public:
 	BinaryTree(TreeNode* root);
 	BinaryTree(int rootVal);
+	// Instantiate empty tree
+	BinaryTree();
 	~BinaryTree();
 
+
+	// Return a pointer to the root node
+	TreeNode* getRoot() { return root; }
 
 	// Is the tree empty?
 	bool isEmpty() { return root != nullptr; }

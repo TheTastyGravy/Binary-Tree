@@ -10,6 +10,11 @@ BinaryTree::BinaryTree(int rootVal) :
 {
 }
 
+BinaryTree::BinaryTree() :
+	root(nullptr)
+{
+}
+
 BinaryTree::~BinaryTree()
 {
 }
@@ -25,10 +30,9 @@ void BinaryTree::insert(int val)
 		return;
 	}
 
+	// Get the node closest to val, without duplicating
 	TreeNode* parent = nullptr;
-
-	// Get the node closest to val
-	if (search(val, &parent))
+	if (!search(val, &parent))
 	{
 		// Create new node
 		TreeNode* newNode = new TreeNode(val);
