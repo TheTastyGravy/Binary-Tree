@@ -125,7 +125,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinaryTree.cpp" />
+    <ClCompile Include="ButtonClass.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="TextboxClass.cpp" />
     <ClCompile Include="TreeNode.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +137,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="ButtonClass.h" />
+    <ClInclude Include="TextboxClass.h" />
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
