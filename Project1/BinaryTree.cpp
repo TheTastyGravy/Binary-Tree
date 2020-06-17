@@ -17,6 +17,11 @@ BinaryTree::BinaryTree() :
 
 BinaryTree::~BinaryTree()
 {
+	// Delete all nodes
+	while (root != nullptr)
+	{
+		remove(root->val);
+	}
 }
 
 
