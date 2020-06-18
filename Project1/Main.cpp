@@ -52,7 +52,7 @@ int main()
 
 		// Draw the tree, given it exists
 		if (tree->getRoot() != nullptr)
-			drawTree(tree->getRoot(), SCREEN_WIDTH / 2.1f, SCREEN_WIDTH / 2, 50);
+			drawTree(tree->getRoot(), (int)(SCREEN_WIDTH / 2.1f), SCREEN_WIDTH / 2, 50);
 
 		// Draw GUI
 		textbox.draw();
