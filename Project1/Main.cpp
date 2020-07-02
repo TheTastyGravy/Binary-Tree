@@ -78,9 +78,6 @@ void drawTree(TreeNode* root, int spacing, int x, int y)
 	spacing /= 2;
 
 
-	// Draw this node
-	drawNode(root, x, y);
-
 	// Check children
 	if (root->left != nullptr)
 	{
